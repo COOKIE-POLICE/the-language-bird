@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://djr0187rger5a"]
+
+[ext_resource type="PackedScene" uid="uid://c5g7p5ucif2vd" path="res://assets/models/glock.blend" id="1_gpn6s"]
+
+[node name="Glock" type="Node3D"]
+
+[node name="glock" parent="." instance=ExtResource("1_gpn6s")]
