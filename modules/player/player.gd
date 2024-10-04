@@ -18,6 +18,12 @@ func _process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif Input.is_action_just_pressed("switch_to_flashlight"):
+		%Flashlight.show()
+		%Glock.hide()
+	elif Input.is_action_just_pressed("switch_to_pistol"):
+		%Flashlight.hide()
+		%Glock.show()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

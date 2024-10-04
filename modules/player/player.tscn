@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ncqt7agjlnjs"]
+[gd_scene load_steps=6 format=3 uid="uid://ncqt7agjlnjs"]
 
 [ext_resource type="Script" path="res://modules/player/player.gd" id="1_qesqb"]
 [ext_resource type="PackedScene" uid="uid://eat3wswrrsax" path="res://modules/flashlight/flashlight.tscn" id="2_h1sd8"]
+[ext_resource type="PackedScene" uid="uid://c5g7p5ucif2vd" path="res://assets/models/glock.blend" id="3_l5ni8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mwh6m"]
 
@@ -21,4 +22,10 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.3)
 
 [node name="Flashlight" parent="Camera3D" instance=ExtResource("2_h1sd8")]
-transform = Transform3D(0.0988954, -0.0147374, 0.00158486, 0, 0.0106924, 0.0994267, -0.0148224, -0.0983284, 0.0105742, 0.501314, -0.323747, -0.49836)
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.501314, -0.323747, -0.55593)
+visible = false
+
+[node name="Glock" parent="Camera3D" instance=ExtResource("3_l5ni8")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.263361, -0.214827, -0.472958)
