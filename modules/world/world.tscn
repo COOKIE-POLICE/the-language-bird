@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://ncqt7agjlnjs" path="res://modules/player/player.tscn" id="1_mmud0"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cigsy"]
-size = Vector2(10, 10)
+size = Vector2(50, 50)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_drhxw"]
-points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_160al"]
+points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
 
 [node name="World" type="Node3D"]
 
@@ -16,7 +16,7 @@ points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
 mesh = SubResource("PlaneMesh_cigsy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_drhxw")
+shape = SubResource("ConvexPolygonShape3D_160al")
 
 [node name="Player" parent="." instance=ExtResource("1_mmud0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

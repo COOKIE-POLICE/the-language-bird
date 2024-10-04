@@ -17,15 +17,20 @@ mesh = SubResource("CapsuleMesh_mwh6m")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_j8ytp")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Head" type="Node3D" parent="."]
 unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.3)
 
-[node name="Flashlight" parent="Camera3D" instance=ExtResource("2_h1sd8")]
+[node name="Hand" type="Node3D" parent="Head"]
 unique_name_in_owner = true
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.501314, -0.323747, -0.55593)
+
+[node name="Flashlight" parent="Head/Hand" instance=ExtResource("2_h1sd8")]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.501314, 0.276253, -0.85593)
 visible = false
 
-[node name="Glock" parent="Camera3D" instance=ExtResource("3_l5ni8")]
+[node name="Glock" parent="Head/Hand" instance=ExtResource("3_l5ni8")]
 unique_name_in_owner = true
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.263361, -0.214827, -0.472958)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.263361, 0.385173, -0.772958)
