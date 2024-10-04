@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 const SPEED: float = 5.0
 var sensitivity: float = 0.004
