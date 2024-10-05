@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bie3d3xyi3trb"]
+
+[ext_resource type="PackedScene" uid="uid://bnxsy6omw71oc" path="res://assets/models/battery.blend" id="1_nmmwc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eq5lc"]
+height = 0.495
+radius = 0.071
+
+[node name="Battery" type="RigidBody3D"]
+
+[node name="battery" parent="." instance=ExtResource("1_nmmwc")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0172034, 0)
+shape = SubResource("CylinderShape3D_eq5lc")
