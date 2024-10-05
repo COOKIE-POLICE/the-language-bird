@@ -31,7 +31,5 @@ shape = SubResource("ConvexPolygonShape3D_kdwwi")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
-avoidance_enabled = true
-debug_enabled = true
 
 [editable path="the_language_bird"]

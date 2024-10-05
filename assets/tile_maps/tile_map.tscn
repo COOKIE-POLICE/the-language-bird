@@ -1,0 +1,62 @@
+[gd_scene load_steps=13 format=3 uid="uid://brsp56vgixkt2"]
+
+[ext_resource type="Texture2D" uid="uid://buh13331dh57x" path="res://assets/textures/office_wall.webp" id="1_b7f7r"]
+[ext_resource type="Texture2D" uid="uid://biw3mbkutk67l" path="res://assets/textures/office_floor.jpg" id="2_7xaci"]
+[ext_resource type="Texture2D" uid="uid://bmcgm3sa63ve1" path="res://assets/textures/office_ceiling.jpg" id="3_p5v1k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3lha"]
+albedo_color = Color(0.507972, 0.507972, 0.507972, 1)
+albedo_texture = ExtResource("2_7xaci")
+
+[sub_resource type="BoxMesh" id="BoxMesh_syn2e"]
+material = SubResource("StandardMaterial3D_t3lha")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8vdb0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ptt6"]
+albedo_color = Color(0.772247, 0.772247, 0.772247, 1)
+albedo_texture = ExtResource("1_b7f7r")
+
+[sub_resource type="BoxMesh" id="BoxMesh_p7vih"]
+material = SubResource("StandardMaterial3D_1ptt6")
+size = Vector3(1, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tv418"]
+size = Vector3(1, 5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23m0c"]
+albedo_color = Color(0.518503, 0.518503, 0.518503, 1)
+albedo_texture = ExtResource("3_p5v1k")
+
+[sub_resource type="BoxMesh" id="BoxMesh_phd14"]
+material = SubResource("StandardMaterial3D_23m0c")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggfle"]
+
+[node name="TileMap" type="Node3D"]
+
+[node name="OfficeFloor" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_syn2e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OfficeFloor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeFloor/StaticBody3D"]
+shape = SubResource("BoxShape3D_8vdb0")
+
+[node name="OfficeWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = SubResource("BoxMesh_p7vih")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OfficeWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_tv418")
+
+[node name="OfficeCeiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+mesh = SubResource("BoxMesh_phd14")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OfficeCeiling"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeCeiling/StaticBody3D"]
+shape = SubResource("BoxShape3D_ggfle")
