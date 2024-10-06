@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0swnnau30nlf"]
+[gd_scene load_steps=7 format=3 uid="uid://b0swnnau30nlf"]
 
 [ext_resource type="PackedScene" uid="uid://btansj7xgyqwf" path="res://assets/models/the_language_bird.blend" id="1_3y5ut"]
 [ext_resource type="Script" path="res://modules/the_language_bird/the_language_bird.gd" id="1_dpg82"]
@@ -11,6 +11,9 @@ points = PackedVector3Array(-0.376792, 0.496821, 0.528257, -0.381125, 0.496821, 
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kdwwi"]
 points = PackedVector3Array(-0.695418, 0.496821, 0.528257, -0.699752, 0.496821, 0.868567, -0.695418, -4.12681e-07, 0.528257, -0.761999, 0.496821, 0.309677, -1.58816, 0.49687, 1.16953, -0.699752, -4.12681e-07, 0.868567, -0.70704, 0.496821, 1.01149, -0.761999, -4.12681e-07, 0.309677, -0.9123, 0.496821, 0.159387, -1.50553, 0.496821, 1.26143, -1.39029, 0.496821, 1.32781, -1.26175, 0.496821, 1.36158, -1.11766, 0.496821, 1.3579, -0.964305, 0.496821, 1.31741, -0.837544, 0.496821, 1.22601, -0.769386, 0.496821, 1.12383, -1.14435, 0.496821, 0.0648217, -1.3763, 0.496821, 0.0872891, -1.55615, 0.496821, 0.230344, -1.64834, 0.496821, 0.373652, -1.67848, 0.496821, 0.543489, -1.70163, 0.496821, 0.868567, -1.66026, 0.496821, 1.03434, -1.58816, -4.12681e-07, 1.16953, -0.70704, -4.12681e-07, 1.01149, -0.9123, -4.12681e-07, 0.159387, -1.50553, -4.12681e-07, 1.26143, -1.39029, -4.12681e-07, 1.32781, -1.26175, -4.12681e-07, 1.36158, -1.11766, -4.12681e-07, 1.3579, -0.964305, -4.12681e-07, 1.31741, -0.837544, -4.12681e-07, 1.22601, -0.769386, -4.12681e-07, 1.12383, -1.14435, -4.12681e-07, 0.0648217, -1.3763, -4.12681e-07, 0.0872891, -1.55615, -4.12681e-07, 0.230344, -1.64834, -4.12681e-07, 0.373652, -1.67848, -4.12681e-07, 0.543489, -1.70163, -4.12681e-07, 0.868567, -1.66026, -4.12681e-07, 1.03434)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_40iah"]
+radius = 10.0
 
 [node name="TheLanguageBird" type="CharacterBody3D"]
 script = ExtResource("1_dpg82")
@@ -31,5 +34,12 @@ shape = SubResource("ConvexPolygonShape3D_kdwwi")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
+
+[node name="EnemyRange" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyRange"]
+shape = SubResource("SphereShape3D_40iah")
+
+[connection signal="body_entered" from="EnemyRange" to="." method="_on_enemy_range_body_entered"]
 
 [editable path="the_language_bird"]

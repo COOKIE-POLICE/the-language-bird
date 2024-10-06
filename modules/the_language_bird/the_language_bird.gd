@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name TheLanguageBird
 @export var player: Player
 var speed: float = 2.0
 
@@ -22,3 +22,8 @@ func set_movement_target() -> void:
 	look_at(player.global_transform.origin)
 	rotate_y(deg_to_rad(180))
 	rotation.x = 0
+
+
+func _on_enemy_range_body_entered(body: Node3D) -> void:
+	if body.is_in_group("players"):
+		speed = 1.0

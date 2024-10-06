@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="The Language Bird"
+run/main_scene="res://modules/world/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +22,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 batteries=""
+players=""
 
 [input]
 

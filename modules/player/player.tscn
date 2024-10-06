@@ -9,9 +9,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j8ytp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_a33gb"]
-radius = 1.5
+radius = 2.5
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["players"]]
 script = ExtResource("1_qesqb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
