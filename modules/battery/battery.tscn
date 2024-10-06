@@ -6,7 +6,7 @@
 height = 0.495
 radius = 0.071
 
-[node name="Battery" type="RigidBody3D"]
+[node name="Battery" type="RigidBody3D" groups=["batteries"]]
 
 [node name="battery" parent="." instance=ExtResource("1_nmmwc")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

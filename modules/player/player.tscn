@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ncqt7agjlnjs"]
+[gd_scene load_steps=7 format=3 uid="uid://ncqt7agjlnjs"]
 
 [ext_resource type="Script" path="res://modules/player/player.gd" id="1_qesqb"]
 [ext_resource type="PackedScene" uid="uid://eat3wswrrsax" path="res://modules/flashlight/flashlight.tscn" id="2_h1sd8"]
@@ -7,6 +7,9 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mwh6m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j8ytp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a33gb"]
+radius = 1.5
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_qesqb")
@@ -35,3 +38,18 @@ visible = false
 [node name="Glock" parent="Head/Hand" instance=ExtResource("3_yxgbg")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.466498, 0.273597, -0.977502)
+
+[node name="PressCToReplaceFlashlightBattery" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 311.0
+offset_top = 500.0
+offset_right = 842.0
+offset_bottom = 542.0
+theme_override_font_sizes/font_size = 30
+text = "Press C To Replace Flashlight Battery"
+
+[node name="InteractingArea" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractingArea"]
+shape = SubResource("SphereShape3D_a33gb")

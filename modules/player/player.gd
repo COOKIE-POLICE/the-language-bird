@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 		%Glock.show()
 
 func _physics_process(delta: float) -> void:
+	check_interaction()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -50,3 +51,13 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * SPEED
 	_weapon_bob(delta)
 	move_and_slide()
+
+func check_interaction() -> void:
+	%PressCToReplaceFlashlightBattery.hide()
+	if %InteractingArea.has_overlapping_bodies():
+		for body in %InteractingArea.get_overlapping_bodies():
+			if body.is_in_group("batteries"):
+				%PressCToReplaceFlashlightBattery.show()
+				if Input.is_action_just_pressed("charge"):
+					%Flashlight.set_battery_life(100)
+					body.queue_free()
