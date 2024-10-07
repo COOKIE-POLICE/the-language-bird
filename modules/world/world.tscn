@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm7w7uub2i30h"]
+[gd_scene load_steps=10 format=3 uid="uid://cm7w7uub2i30h"]
 
 [ext_resource type="PackedScene" uid="uid://ncqt7agjlnjs" path="res://modules/player/player.tscn" id="1_mmud0"]
 [ext_resource type="MeshLibrary" uid="uid://douxtqcsstewc" path="res://assets/tile_maps/tile_map.tres" id="3_4gn0g"]
 [ext_resource type="PackedScene" uid="uid://bie3d3xyi3trb" path="res://modules/battery/battery.tscn" id="4_8mvk8"]
 [ext_resource type="PackedScene" uid="uid://b0w2xcgc7o8rh" path="res://modules/the_language_bird_spawner/the_language_bird_spawner.tscn" id="4_oj3s3"]
+[ext_resource type="PackedScene" uid="uid://eaav5cu34nw0" path="res://modules/note/note.tscn" id="5_dsquk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jbxeb"]
 sky_top_color = Color(0.0451227, 0.0633764, 0.0887599, 1)
@@ -36,6 +37,11 @@ agent_radius = 0.24
 
 [node name="World" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.433016, -0.899518, -0.0580158, 0.250002, 0.0580112, 0.966506, 0, 3, 0)
+light_energy = 16.0
+shadow_enabled = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_s3vci")
 
@@ -59,3 +65,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 
 [node name="TheLanguageBirdSpawner" parent="." instance=ExtResource("4_oj3s3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0)
+
+[node name="Note" parent="." instance=ExtResource("5_dsquk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09859, -3)
+text = "November 21, 2021
+
+It seems the amount of users on our app has dropped drastically. Our competitors are winning and we know it. We need to take drastic measures to combat this. There is only one way to do this. Users won't come back even if we improve our app. We must strike fear in them, we must threaten them. That is the only way, even if it is unethical."
+
+[node name="Note2" parent="." instance=ExtResource("5_dsquk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -3)
+text = "December 1, 2021
+
+We have initiated Project Bird. The premise of this project is to create a weapon of mass destruction that will threaten old users to come back to our app. We have decided to launch out several of our mascots to threaten users across the world."
+
+[node name="Note3" parent="." instance=ExtResource("5_dsquk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+text = "Janurary 23, 2022
+
+This is not going well. All of our mascots have been arrested by police men. We need something else. Perhaps we can create a monster to do our bidding. There has been scientific breakthroughs in nuclear radiation that may allow us to do so."

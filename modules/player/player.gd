@@ -53,11 +53,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func check_interaction() -> void:
-	%PressCToReplaceFlashlightBattery.hide()
+	%PressEToReplaceFlashlightBattery.hide()
+	%PressEToReadNote.hide()
 	if %InteractingArea.has_overlapping_bodies():
 		for body in %InteractingArea.get_overlapping_bodies():
 			if body.is_in_group("batteries"):
-				%PressCToReplaceFlashlightBattery.show()
-				if Input.is_action_just_pressed("charge"):
+				%PressEToReplaceFlashlightBattery.show()
+				if Input.is_action_just_pressed("interact"):
 					%Flashlight.set_battery_life(100)
 					body.queue_free()
+				break
+			elif body.is_in_group("notes"):
+				%PressEToReadNote.show()
+				if Input.is_action_just_pressed("interact"):
+					body.show_note()
+				break

@@ -3,7 +3,7 @@ extends Node3D
 var battery_life: float = 100.0
 		
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("use") and visible:
+	if Input.is_action_just_pressed("toggle_flashlight") and visible:
 		if %Light.visible:
 			%Light.hide()
 			%FlashlightBatteryDrainTimer.set_paused(true)
