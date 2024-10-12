@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ncqt7agjlnjs"]
+[gd_scene load_steps=11 format=3 uid="uid://ncqt7agjlnjs"]
 
 [ext_resource type="Script" path="res://modules/player/player.gd" id="1_qesqb"]
 [ext_resource type="PackedScene" uid="uid://eat3wswrrsax" path="res://modules/flashlight/flashlight.tscn" id="2_h1sd8"]
 [ext_resource type="PackedScene" uid="uid://djr0187rger5a" path="res://modules/glock/glock.tscn" id="3_yxgbg"]
+[ext_resource type="AudioStream" uid="uid://d3v1qqhwd1udp" path="res://assets/sfx/footsteps_leather_wood_walk/footsteps_leather_wood_walk01.wav" id="4_mbe4h"]
+[ext_resource type="AudioStream" uid="uid://drhnifhs0c2xe" path="res://assets/sfx/footsteps_leather_wood_walk/footsteps_leather_wood_walk06.wav" id="9_byho2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mwh6m"]
 
@@ -10,6 +12,34 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_a33gb"]
 radius = 2.5
+
+[sub_resource type="Animation" id="Animation_nkdt0"]
+resource_name = "walk"
+length = 1.5
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FootstepsAudio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 1.07,
+"start_offset": 0.0,
+"stream": ExtResource("4_mbe4h")
+}, {
+"end_offset": 1.03227,
+"start_offset": 0.0,
+"stream": ExtResource("9_byho2")
+}],
+"times": PackedFloat32Array(0.166667, 1.06667)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_07imb"]
+_data = {
+"walk": SubResource("Animation_nkdt0")
+}
 
 [node name="Player" type="CharacterBody3D" groups=["players"]]
 script = ExtResource("1_qesqb")
@@ -62,3 +92,13 @@ offset_right = 730.0
 offset_bottom = 542.0
 theme_override_font_sizes/font_size = 30
 text = "Press E To Read Note"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_07imb")
+}
+
+[node name="FootstepsAudio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+bus = &"sfx"

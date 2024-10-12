@@ -8,7 +8,7 @@ var bob_amount_walking: Vector2 = Vector2(0.01, 0.01)
 var bob_freq_walking: Vector2 = Vector2(0.005, 0.01)
 var bob_amount_idle: Vector2 = Vector2(0.004, 0.004)
 var bob_freq_idle: Vector2 = Vector2(0.004, 0.004)
-
+var can_move: bool = true
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -44,12 +44,14 @@ func _physics_process(delta: float) -> void:
 	check_interaction()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
-	_weapon_bob(delta)
+	if can_move:
+		var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+		_weapon_bob(delta)
+	if velocity.z != 0 or velocity.x != 0:
+		%AnimationPlayer.play("walk")
 	move_and_slide()
 
 func check_interaction() -> void:

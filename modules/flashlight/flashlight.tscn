@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://eat3wswrrsax"]
+[gd_scene load_steps=6 format=3 uid="uid://eat3wswrrsax"]
 
 [ext_resource type="PackedScene" uid="uid://dl3q3v11t355m" path="res://assets/models/flashlight.blend" id="1_0pdal"]
 [ext_resource type="Script" path="res://modules/flashlight/flashlight.gd" id="1_64ese"]
+[ext_resource type="AudioStream" uid="uid://dp8k00f68xtij" path="res://assets/sfx/flashlight_click.wav" id="3_eypyn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myeim"]
 bg_color = Color(1, 1, 1, 1)
@@ -37,5 +38,10 @@ show_percentage = false
 [node name="FlashlightBatteryDrainTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 autostart = true
+
+[node name="FlashlightClickAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_eypyn")
+bus = &"sfx"
 
 [connection signal="timeout" from="FlashlightBatteryDrainTimer" to="." method="_on_flashlight_battery_drain_timer_timeout"]

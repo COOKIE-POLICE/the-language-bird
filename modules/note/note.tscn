@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://eaav5cu34nw0"]
+[gd_scene load_steps=7 format=3 uid="uid://eaav5cu34nw0"]
 
 [ext_resource type="Script" path="res://modules/note/note.gd" id="1_2rt5w"]
 [ext_resource type="Texture2D" uid="uid://t1nsu1c05lus" path="res://assets/textures/old_paper.jpg" id="1_u31iv"]
+[ext_resource type="AudioStream" uid="uid://cd1c3srlquwrl" path="res://assets/sfx/papercrackle.wav" id="3_wr4co"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7gtm"]
 albedo_texture = ExtResource("1_u31iv")
@@ -43,3 +44,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
+
+[node name="PaperCrackleAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_wr4co")
+volume_db = -20.0
+bus = &"sfx"

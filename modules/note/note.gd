@@ -4,10 +4,15 @@ extends RigidBody3D
 
 func _ready() -> void:
 	%NoteText.text = text
-func _process(delta: float) -> void:
-	print("ok")
-	if Input.is_action_just_pressed("close_note"):
-		%Note.hide()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("close_note"):
+		if %Note.visible:
+			%Note.hide()
+			%PaperCrackleAudio.play()
+			get_tree().get_first_node_in_group("players").can_move = true
 func show_note() -> void:
-	%Note.show()
+	if !%Note.visible:
+		%Note.show()
+		%PaperCrackleAudio.play()
+		get_tree().get_first_node_in_group("players").can_move = false
