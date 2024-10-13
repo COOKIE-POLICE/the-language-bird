@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://drbuhnqxab2n5"]
+
+[ext_resource type="PackedScene" uid="uid://o0hpqvuxhvcp" path="res://assets/models/crate.blend" id="1_x1d7k"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hbp4u"]
+points = PackedVector3Array(1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1, -1, -1, -1)
+
+[node name="Crate" type="RigidBody3D"]
+
+[node name="crate" parent="." instance=ExtResource("1_x1d7k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_hbp4u")

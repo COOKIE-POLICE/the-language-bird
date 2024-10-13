@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cm7w7uub2i30h"]
+[gd_scene load_steps=13 format=3 uid="uid://cm7w7uub2i30h"]
 
 [ext_resource type="PackedScene" uid="uid://ncqt7agjlnjs" path="res://modules/player/player.tscn" id="1_mmud0"]
 [ext_resource type="MeshLibrary" uid="uid://douxtqcsstewc" path="res://assets/tile_maps/tile_map.tres" id="3_4gn0g"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b0w2xcgc7o8rh" path="res://modules/the_language_bird_spawner/the_language_bird_spawner.tscn" id="4_oj3s3"]
 [ext_resource type="PackedScene" uid="uid://eaav5cu34nw0" path="res://modules/note/note.tscn" id="5_dsquk"]
 [ext_resource type="AudioStream" uid="uid://7t6f621clrla" path="res://assets/background_sfx/horror_ambience.ogg" id="6_ni5xj"]
+[ext_resource type="PackedScene" uid="uid://bmk048pfsdc3n" path="res://modules/rotten_doughnut/rotten_doughnut.tscn" id="7_kqn2v"]
+[ext_resource type="PackedScene" uid="uid://drbuhnqxab2n5" path="res://modules/crate/crate.tscn" id="8_h4cht"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jbxeb"]
 sky_top_color = Color(0.0451227, 0.0633764, 0.0887599, 1)
@@ -35,12 +37,6 @@ agent_height = 0.53
 agent_radius = 0.24
 
 [node name="World" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.433016, -0.899518, -0.0580158, 0.250002, 0.0580112, 0.966506, 0, 3, 0)
-visible = false
-light_energy = 16.0
-shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_s3vci")
@@ -88,3 +84,9 @@ This is not going well. All of our mascots have been arrested by police men. We 
 stream = ExtResource("6_ni5xj")
 autoplay = true
 bus = &"background"
+
+[node name="RottenDoughnut" parent="." instance=ExtResource("7_kqn2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
+
+[node name="Crate" parent="." instance=ExtResource("8_h4cht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6)
