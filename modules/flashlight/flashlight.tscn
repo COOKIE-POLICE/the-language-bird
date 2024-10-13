@@ -37,6 +37,7 @@ show_percentage = false
 
 [node name="FlashlightBatteryDrainTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 2.0
 autostart = true
 
 [node name="FlashlightClickAudio" type="AudioStreamPlayer3D" parent="."]

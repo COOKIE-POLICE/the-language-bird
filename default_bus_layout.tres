@@ -1,7 +1,13 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://co7rufdacnrmr"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://co7rufdacnrmr"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_apslg"]
+resource_name = "Reverb"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_0pbk0"]
 resource_name = "Reverb"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_kx0fk"]
+resource_name = "Amplify"
 
 [resource]
 bus/1/name = &"sfx"
@@ -10,6 +16,8 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 1.98485
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_apslg")
+bus/1/effect/0/enabled = true
 bus/2/name = &"background"
 bus/2/solo = false
 bus/2/mute = false
@@ -18,3 +26,5 @@ bus/2/volume_db = -4.08424
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectReverb_0pbk0")
 bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectAmplify_kx0fk")
+bus/2/effect/1/enabled = true

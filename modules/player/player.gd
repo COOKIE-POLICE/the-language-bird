@@ -13,7 +13,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and can_move:
 		rotation.y = rotation.y - event.relative.x * sensitivity
 		%Head.rotation.x = %Head.rotation.x - event.relative.y * sensitivity
 		%Head.rotation.x = clamp(%Head.rotation.x, deg_to_rad(-70), deg_to_rad(80))

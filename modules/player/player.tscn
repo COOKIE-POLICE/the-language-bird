@@ -55,6 +55,7 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.3)
+fov = 60.0
 far = 100.0
 
 [node name="Hand" type="Node3D" parent="Head"]
@@ -62,12 +63,12 @@ unique_name_in_owner = true
 
 [node name="Flashlight" parent="Head/Hand" instance=ExtResource("2_h1sd8")]
 unique_name_in_owner = true
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.501314, 0.276253, -0.85593)
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.501314, 0.276253, -1.05543)
 visible = false
 
 [node name="Glock" parent="Head/Hand" instance=ExtResource("3_yxgbg")]
 unique_name_in_owner = true
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.466498, 0.273597, -0.977502)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.466498, 0.273597, -1.0775)
 
 [node name="PressEToReplaceFlashlightBattery" type="Label" parent="."]
 unique_name_in_owner = true
