@@ -3,6 +3,7 @@ class_name TheLanguageBird
 @export var player: Player
 var speed: float = 2.0
 
+
 func _physics_process(delta: float) -> void:
 	set_movement_target()
 	if not is_on_floor():
@@ -16,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	var direction = local_destination.normalized()
 	velocity = direction * speed
 	move_and_slide()
+
 
 func set_movement_target() -> void:
 	%NavigationAgent3D.set_target_position(player.position)

@@ -51,7 +51,6 @@ mesh = SubResource("CapsuleMesh_mwh6m")
 shape = SubResource("CapsuleShape3D_j8ytp")
 
 [node name="Head" type="Node3D" parent="."]
-unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.3)
@@ -59,19 +58,15 @@ fov = 60.0
 far = 100.0
 
 [node name="Hand" type="Node3D" parent="Head"]
-unique_name_in_owner = true
 
 [node name="Flashlight" parent="Head/Hand" instance=ExtResource("2_h1sd8")]
-unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.501314, 0.276253, -1.05543)
 visible = false
 
 [node name="Glock" parent="Head/Hand" instance=ExtResource("3_yxgbg")]
-unique_name_in_owner = true
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.466498, 0.273597, -1.0775)
 
 [node name="PressEToReplaceFlashlightBattery" type="Label" parent="."]
-unique_name_in_owner = true
 offset_left = 311.0
 offset_top = 500.0
 offset_right = 842.0
@@ -80,13 +75,11 @@ theme_override_font_sizes/font_size = 30
 text = "Press E To Replace Flashlight Battery"
 
 [node name="InteractingArea" type="Area3D" parent="."]
-unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractingArea"]
 shape = SubResource("SphereShape3D_a33gb")
 
 [node name="PressEToReadNote" type="Label" parent="."]
-unique_name_in_owner = true
 offset_left = 423.0
 offset_top = 500.0
 offset_right = 730.0
@@ -95,7 +88,6 @@ theme_override_font_sizes/font_size = 30
 text = "Press E To Read Note"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_07imb")
 }

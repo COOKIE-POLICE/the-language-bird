@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0ygwa7wwgn7f"
-path.s3tc="res://.godot/imported/Photoreal_Stone_08-512x512.png-9a272568abc442f54a2013672c34b2be.s3tc.ctex"
+path.bptc="res://.godot/imported/Photoreal_Stone_08-512x512.png-9a272568abc442f54a2013672c34b2be.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,12 +12,12 @@ metadata={
 [deps]
 
 source_file="res://assets/textures/stone/Photoreal_Stone_08-512x512.png"
-dest_files=["res://.godot/imported/Photoreal_Stone_08-512x512.png-9a272568abc442f54a2013672c34b2be.s3tc.ctex"]
+dest_files=["res://.godot/imported/Photoreal_Stone_08-512x512.png-9a272568abc442f54a2013672c34b2be.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
