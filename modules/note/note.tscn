@@ -49,4 +49,7 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 stream = ExtResource("3_wr4co")
 volume_db = -20.0
-bus = &"sfx"
+bus = &"SFX"
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.3, -0.1, -0.3, 0.6, 0.2, 0.6)

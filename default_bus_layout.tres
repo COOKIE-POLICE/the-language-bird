@@ -34,7 +34,7 @@ resource_name = "Compressor"
 resource_name = "Panner"
 
 [resource]
-bus/1/name = &"sfx"
+bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
@@ -50,7 +50,7 @@ bus/1/effect/3/effect = SubResource("AudioEffectCompressor_5qp57")
 bus/1/effect/3/enabled = true
 bus/1/effect/4/effect = SubResource("AudioEffectPanner_5o7hh")
 bus/1/effect/4/enabled = true
-bus/2/name = &"background"
+bus/2/name = &"Background SFX"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://db6xv8o5kg3kq"
-path="res://.godot/imported/rotten_doughnut.blend-2613497885c927a3596ca7097cd5e761.scn"
+uid="uid://ol3i5jak1q85"
+path="res://.godot/imported/rotten_doughnut.blend-bcee56d1702ff450c333bf0ee18fa1a7.scn"
 
 [deps]
 
-source_file="res://assets/models/rotten_doughnut.blend"
-dest_files=["res://.godot/imported/rotten_doughnut.blend-2613497885c927a3596ca7097cd5e761.scn"]
+source_file="res://assets/models/rotten_doughnut/rotten_doughnut.blend"
+dest_files=["res://.godot/imported/rotten_doughnut.blend-bcee56d1702ff450c333bf0ee18fa1a7.scn"]
 
 [params]
 

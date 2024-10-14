@@ -15,6 +15,10 @@ run/main_scene="res://modules/world/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -86,5 +90,7 @@ toggle_flashlight={
 [physics]
 
 3d/run_on_separate_thread=true
-common/physics_ticks_per_second=15
-common/max_physics_steps_per_frame=2
+
+[rendering]
+
+occlusion_culling/use_occlusion_culling=true

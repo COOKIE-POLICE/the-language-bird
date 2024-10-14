@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://brsp56vgixkt2"]
+[gd_scene load_steps=67 format=3 uid="uid://brsp56vgixkt2"]
 
 [ext_resource type="Texture2D" uid="uid://bmhb8n8yuksxp" path="res://assets/textures/stone/Photoreal_Stone_01-512x512.png" id="1_4tw2d"]
 [ext_resource type="Texture2D" uid="uid://bxbigkxang82n" path="res://assets/textures/concrete/Photoreal_Concrete_01-512x512.png" id="2_28u1u"]
@@ -35,6 +35,9 @@ material = SubResource("StandardMaterial3D_1ptt6")
 size = Vector3(1, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tv418"]
+size = Vector3(1, 5, 1)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_i7q5f"]
 size = Vector3(1, 5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgwfp"]
@@ -117,6 +120,9 @@ size = Vector3(1, 5, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2g3my"]
 points = PackedVector3Array(-0.5, -2.5, -0.5, -0.5, -2.5, 0.5, -0.5, 2.5, -0.5, 0.5, -2.5, -0.5, 0.5, -2.5, 0.5, -0.5, 2.5, 0.5, 0.5, 2.5, -0.5, 0.5, 2.5, 0.5)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_x2ki7"]
+size = Vector3(1, 5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxkqj"]
 albedo_color = Color(0.497474, 0.497474, 0.497474, 1)
@@ -203,6 +209,9 @@ mesh = SubResource("BoxMesh_p7vih")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConcreteWall1/StaticBody3D"]
 shape = SubResource("BoxShape3D_tv418")
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ConcreteWall1"]
+occluder = SubResource("BoxOccluder3D_i7q5f")
+
 [node name="StoneFloor2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 mesh = SubResource("BoxMesh_yl1rg")
@@ -275,6 +284,9 @@ mesh = SubResource("BoxMesh_6hpsf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConcreteWall2/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2g3my")
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ConcreteWall2"]
+occluder = SubResource("BoxOccluder3D_x2ki7")
+
 [node name="ConcreteWall3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
 mesh = SubResource("BoxMesh_qhqbg")
@@ -283,6 +295,9 @@ mesh = SubResource("BoxMesh_qhqbg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConcreteWall3/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8flfb")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ConcreteWall3"]
+occluder = SubResource("BoxOccluder3D_x2ki7")
 
 [node name="ConcreteWall4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
@@ -293,6 +308,9 @@ mesh = SubResource("BoxMesh_qjxwr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConcreteWall4/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_fy1tc")
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ConcreteWall4"]
+occluder = SubResource("BoxOccluder3D_x2ki7")
+
 [node name="ConcreteWall5" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
 mesh = SubResource("BoxMesh_n6lk1")
@@ -301,6 +319,9 @@ mesh = SubResource("BoxMesh_n6lk1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConcreteWall5/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_td70w")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ConcreteWall5"]
+occluder = SubResource("BoxOccluder3D_x2ki7")
 
 [node name="ConcreteWall6" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 10)
@@ -311,6 +332,9 @@ mesh = SubResource("BoxMesh_dhh0r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConcreteWall6/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_6w27j")
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ConcreteWall6"]
+occluder = SubResource("BoxOccluder3D_x2ki7")
+
 [node name="ConcreteWall7" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 12)
 mesh = SubResource("BoxMesh_u7hyt")
@@ -320,6 +344,9 @@ mesh = SubResource("BoxMesh_u7hyt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConcreteWall7/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_j6j4h")
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ConcreteWall7"]
+occluder = SubResource("BoxOccluder3D_x2ki7")
+
 [node name="ConcreteWall8" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 14)
 mesh = SubResource("BoxMesh_mxrkd")
@@ -328,3 +355,6 @@ mesh = SubResource("BoxMesh_mxrkd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConcreteWall8/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_xopm8")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="ConcreteWall8"]
+occluder = SubResource("BoxOccluder3D_x2ki7")

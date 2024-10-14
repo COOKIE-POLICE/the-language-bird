@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cub86fo3xxqhq"
-path.s3tc="res://.godot/imported/moldy_icing.jpg-cd49e9590020f77757bc6b4b7f08acef.s3tc.ctex"
+uid="uid://dlnlbx3gb35kb"
+path.s3tc="res://.godot/imported/mold.webp-64d43079ac0d0ee59182f9ed2b415a0c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/textures/moldy_icing.jpg"
-dest_files=["res://.godot/imported/moldy_icing.jpg-cd49e9590020f77757bc6b4b7f08acef.s3tc.ctex"]
+source_file="res://assets/models/rotten_doughnut/textures/mold.webp"
+dest_files=["res://.godot/imported/mold.webp-64d43079ac0d0ee59182f9ed2b415a0c.s3tc.ctex"]
 
 [params]
 

@@ -44,6 +44,6 @@ autostart = true
 [node name="FlashlightClickAudio" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_eypyn")
-bus = &"sfx"
+bus = &"SFX"
 
 [connection signal="timeout" from="FlashlightBatteryDrainTimer" to="." method="_on_flashlight_battery_drain_timer_timeout"]

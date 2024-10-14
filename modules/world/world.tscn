@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cm7w7uub2i30h"]
+[gd_scene load_steps=14 format=3 uid="uid://cm7w7uub2i30h"]
 
 [ext_resource type="PackedScene" uid="uid://ncqt7agjlnjs" path="res://modules/player/player.tscn" id="1_mmud0"]
 [ext_resource type="MeshLibrary" uid="uid://douxtqcsstewc" path="res://assets/tile_maps/tile_map.tres" id="3_4gn0g"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://7t6f621clrla" path="res://assets/background_sfx/horror_ambience.ogg" id="6_ni5xj"]
 [ext_resource type="PackedScene" uid="uid://bmk048pfsdc3n" path="res://modules/rotten_doughnut/rotten_doughnut.tscn" id="7_kqn2v"]
 [ext_resource type="PackedScene" uid="uid://drbuhnqxab2n5" path="res://modules/crate/crate.tscn" id="8_h4cht"]
+[ext_resource type="PackedScene" uid="uid://byy7x8tqj4rjt" path="res://modules/rat/rat.tscn" id="9_uscbe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jbxeb"]
 sky_top_color = Color(0.0451227, 0.0633764, 0.0887599, 1)
@@ -83,10 +84,13 @@ This is not going well. All of our mascots have been arrested by police men. We 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ni5xj")
 autoplay = true
-bus = &"background"
+bus = &"Background SFX"
 
 [node name="RottenDoughnut" parent="." instance=ExtResource("7_kqn2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
 
 [node name="Crate" parent="." instance=ExtResource("8_h4cht")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6)
+
+[node name="Rat" parent="." instance=ExtResource("9_uscbe")]
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, -1, 2, 0)
