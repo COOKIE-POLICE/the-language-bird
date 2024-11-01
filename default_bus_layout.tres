@@ -1,70 +1,65 @@
-[gd_resource type="AudioBusLayout" load_steps=12 format=3 uid="uid://co7rufdacnrmr"]
+[gd_resource type="AudioBusLayout" load_steps=11 format=3 uid="uid://co7rufdacnrmr"]
 
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_apslg"]
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_dldx0"]
 resource_name = "Reverb"
 
-[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_q7ho3"]
-resource_name = "Distortion"
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_c2w5p"]
+resource_name = "Delay"
 
-[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_3dvu2"]
-resource_name = "EQ"
-
-[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_5qp57"]
-resource_name = "Compressor"
-
-[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_5o7hh"]
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_fkns8"]
 resource_name = "Panner"
 
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_2tdgo"]
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_uvsyx"]
+resource_name = "Distortion"
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_dpl5l"]
+resource_name = "EQ"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_s8684"]
+resource_name = "Distortion"
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_1ofdq"]
+resource_name = "Delay"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_5akhy"]
 resource_name = "Reverb"
 
-[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_pb7hi"]
-resource_name = "Chorus"
-
-[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_bhk8k"]
-resource_name = "Distortion"
-
-[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_t551x"]
-resource_name = "EQ"
-
-[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_eonnv"]
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_5hx6a"]
 resource_name = "Compressor"
 
-[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_wbcsf"]
-resource_name = "Panner"
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_6wsaf"]
+resource_name = "Limiter"
 
 [resource]
 bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -6.14301
+bus/1/volume_db = 6.02
 bus/1/send = &"Master"
-bus/1/effect/0/effect = SubResource("AudioEffectReverb_apslg")
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_dldx0")
 bus/1/effect/0/enabled = true
-bus/1/effect/1/effect = SubResource("AudioEffectDistortion_q7ho3")
+bus/1/effect/1/effect = SubResource("AudioEffectDelay_c2w5p")
 bus/1/effect/1/enabled = true
-bus/1/effect/2/effect = SubResource("AudioEffectEQ_3dvu2")
+bus/1/effect/2/effect = SubResource("AudioEffectPanner_fkns8")
 bus/1/effect/2/enabled = true
-bus/1/effect/3/effect = SubResource("AudioEffectCompressor_5qp57")
+bus/1/effect/3/effect = SubResource("AudioEffectDistortion_uvsyx")
 bus/1/effect/3/enabled = true
-bus/1/effect/4/effect = SubResource("AudioEffectPanner_5o7hh")
-bus/1/effect/4/enabled = true
 bus/2/name = &"Background SFX"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -18.3165
+bus/2/volume_db = 0.00282288
 bus/2/send = &"Master"
-bus/2/effect/0/effect = SubResource("AudioEffectReverb_2tdgo")
+bus/2/effect/0/effect = SubResource("AudioEffectEQ_dpl5l")
 bus/2/effect/0/enabled = true
-bus/2/effect/1/effect = SubResource("AudioEffectChorus_pb7hi")
+bus/2/effect/1/effect = SubResource("AudioEffectDistortion_s8684")
 bus/2/effect/1/enabled = true
-bus/2/effect/2/effect = SubResource("AudioEffectDistortion_bhk8k")
+bus/2/effect/2/effect = SubResource("AudioEffectDelay_1ofdq")
 bus/2/effect/2/enabled = true
-bus/2/effect/3/effect = SubResource("AudioEffectEQ_t551x")
+bus/2/effect/3/effect = SubResource("AudioEffectReverb_5akhy")
 bus/2/effect/3/enabled = true
-bus/2/effect/4/effect = SubResource("AudioEffectCompressor_eonnv")
+bus/2/effect/4/effect = SubResource("AudioEffectCompressor_5hx6a")
 bus/2/effect/4/enabled = true
-bus/2/effect/5/effect = SubResource("AudioEffectPanner_wbcsf")
+bus/2/effect/5/effect = SubResource("AudioEffectLimiter_6wsaf")
 bus/2/effect/5/enabled = true

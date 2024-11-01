@@ -9,9 +9,10 @@ func _process(delta: float) -> void:
 		if %Light.visible:
 			%Light.hide()
 			%FlashlightBatteryDrainTimer.set_paused(true)
-		else:
+		elif !%Light.visible and battery_life > 0:
 			%Light.show()
 			%FlashlightBatteryDrainTimer.set_paused(false)
+	
 	%BatteryLife.value = battery_life
 
 
@@ -20,5 +21,7 @@ func set_battery_life(value: float) -> void:
 
 
 func _on_flashlight_battery_drain_timer_timeout() -> void:
-	if visible:
+	if visible and battery_life > 0:
 		battery_life -= 1
+	if battery_life <= 0:
+		%Light.hide()

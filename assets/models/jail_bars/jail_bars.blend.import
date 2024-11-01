@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5g7p5ucif2vd"
-path="res://.godot/imported/glock.blend-f8d9760d0168c187e43f382eb8869872.scn"
+uid="uid://d18ljtcrhu5q6"
+path="res://.godot/imported/jail_bars.blend-8280e8ec1b264660309d8ab6d0e4792d.scn"
 
 [deps]
 
-source_file="res://assets/models/glock.blend"
-dest_files=["res://.godot/imported/glock.blend-f8d9760d0168c187e43f382eb8869872.scn"]
+source_file="res://assets/models/jail_bars/jail_bars.blend"
+dest_files=["res://.godot/imported/jail_bars.blend-8280e8ec1b264660309d8ab6d0e4792d.scn"]
 
 [params]
 

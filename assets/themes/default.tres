@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d5t53bidh7yv"]
+
+[ext_resource type="FontFile" uid="uid://ctfg85sh8h1vm" path="res://assets/fonts/unispace_rg.otf" id="1_ebvy3"]
+
+[resource]
+Label/fonts/font = ExtResource("1_ebvy3")

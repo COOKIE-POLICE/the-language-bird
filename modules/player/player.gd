@@ -3,7 +3,7 @@ class_name Player
 @onready var hand: Node3D = $Head/Hand
 
 const SPEED: float = 5.0
-var sensitivity: float = 0.004
+var sensitivity: float = 0.008
 @onready var default_hand_position: Vector3 = hand.position
 var bob_amount_walking: Vector2 = Vector2(0.01, 0.01)
 var bob_freq_walking: Vector2 = Vector2(0.005, 0.01)
@@ -16,7 +16,6 @@ var can_move: bool = true
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var press_e_to_replace_flashlight_battery: Label = $PressEToReplaceFlashlightBattery
 @onready var flashlight: Node3D = $Head/Hand/Flashlight
-@onready var glock: Node3D = $Head/Hand/Glock
 
 
 func _ready() -> void:
@@ -75,10 +74,6 @@ func _process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif Input.is_action_just_pressed("switch_to_flashlight"):
 		flashlight.show()
-		glock.hide()
-	elif Input.is_action_just_pressed("switch_to_pistol"):
-		flashlight.hide()
-		glock.show()
 
 
 func _physics_process(delta: float) -> void:

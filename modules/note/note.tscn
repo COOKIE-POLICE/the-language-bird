@@ -23,14 +23,20 @@ mesh = SubResource("BoxMesh_j40r2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qp1up")
 
+[node name="PaperCrackleAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_wr4co")
+bus = &"SFX"
+
 [node name="Note" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
-offset_left = 339.0
-offset_top = 36.0
-offset_right = 813.0
-offset_bottom = 612.0
+offset_left = 89.3
+offset_top = 20.0
+offset_right = 230.7
+offset_bottom = 220.0
 texture = ExtResource("1_u31iv")
+expand_mode = 1
 
 [node name="NoteText" type="Label" parent="Note"]
 unique_name_in_owner = true
@@ -41,15 +47,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 10
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
-
-[node name="PaperCrackleAudio" type="AudioStreamPlayer3D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("3_wr4co")
-volume_db = -20.0
-bus = &"SFX"
-
-[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
-aabb = AABB(-0.3, -0.1, -0.3, 0.6, 0.2, 0.6)
