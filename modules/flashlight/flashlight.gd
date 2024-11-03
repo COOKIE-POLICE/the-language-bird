@@ -1,20 +1,18 @@
-extends Node3D
+extends Item
 
 var battery_life: float = 100.0
 
-
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("toggle_flashlight") and visible:
-		%FlashlightClickAudio.play()
-		if %Light.visible:
-			%Light.hide()
-			%FlashlightBatteryDrainTimer.set_paused(true)
-		elif !%Light.visible and battery_life > 0:
-			%Light.show()
-			%FlashlightBatteryDrainTimer.set_paused(false)
-	
 	%BatteryLife.value = battery_life
 
+func toggle_flashlight() -> void:
+	%FlashlightClickAudio.play()
+	if %Light.visible:
+		%Light.hide()
+		%FlashlightBatteryDrainTimer.set_paused(true)
+	elif !%Light.visible and battery_life > 0:
+		%Light.show()
+		%FlashlightBatteryDrainTimer.set_paused(false)
 
 func set_battery_life(value: float) -> void:
 	battery_life = value
