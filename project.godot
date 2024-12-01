@@ -32,6 +32,8 @@ players=""
 notes=""
 keys=""
 flashlights=""
+metal_doors=""
+player_hands=""
 
 [input]
 

@@ -4,6 +4,10 @@ var battery_life: float = 100.0
 
 func _process(delta: float) -> void:
 	%BatteryLife.value = battery_life
+	if get_parent().is_in_group("player_hands"):
+		%BatteryLife.show()
+	else:
+		%BatteryLife.hide()
 
 func toggle_flashlight() -> void:
 	%FlashlightClickAudio.play()
