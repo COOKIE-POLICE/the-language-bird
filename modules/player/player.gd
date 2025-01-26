@@ -4,9 +4,9 @@ class_name Player
 @onready var hand: Node3D = $Head/Hand
 @onready var default_hand_position: Vector3 = hand.position
 @onready var head: Node3D = $Head
-@onready var interacting_area: Area3D = $InteractingArea
+@onready var aim_ray: RayCast3D = $Head/Hand/AimRay
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var interacting_label: Label = $InteractingLabel
 const SPEED: float = 5.0
 var sensitivity: float = 0.008
 var bob_amount_walking: Vector2 = Vector2(0.01, 0.01)
@@ -15,10 +15,14 @@ var bob_amount_idle: Vector2 = Vector2(0.004, 0.004)
 var bob_freq_idle: Vector2 = Vector2(0.004, 0.004)
 var can_move: bool = true
 @onready var inventory_component: Node = $InventoryComponent
+var world_ui: WorldUI
 
-
+func init_world_ui() -> void:
+	world_ui = get_tree().get_first_node_in_group("world_ui")
+	
 
 func _ready() -> void:
+	init_world_ui()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -67,6 +71,8 @@ func _weapon_bob(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_released("interact"):
+		world_ui.value = 0
 	if Input.is_action_just_pressed("pause"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -103,36 +109,39 @@ func _physics_process(delta: float) -> void:
 
 
 func _show_interacting_label(text: String):
-	interacting_label.text = text
-	interacting_label.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	interacting_label.position.y - 50
-	interacting_label.show()
+	world_ui.interacting_label.text = text
+	world_ui.interacting_label.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	world_ui.interacting_label.position.y - 50
+	world_ui.interacting_label.show()
 
 func check_interaction() -> void:
-	interacting_label.hide()
-	if interacting_area.has_overlapping_bodies():
-		for body in interacting_area.get_overlapping_bodies():
-			if body.is_in_group("batteries"):
-				_show_interacting_label("Press E to Replace Flashlight Battery")
-				if Input.is_action_just_pressed("interact") and inventory_component.is_current_slot_in_group("flashlights"):
-					inventory_component.get_current_inventory_slot().set_battery_life(100)
-					body.queue_free()
-				break
-			elif body.is_in_group("metal_doors") and inventory_component.is_current_slot_in_group("keys"):
-				_show_interacting_label("Press E to Open/Close Door")
-				if Input.is_action_just_pressed("interact"):
-					body.owner.toggle_door()
-				break
-			elif body.is_in_group("notes"):
-				_show_interacting_label("Press E To Read Note")
-				if Input.is_action_just_pressed("interact"):
-					body.show_note()
-				break
-			elif body is Item and body not in inventory_component.inventory_slots.values() and inventory_component.inventory_slots[inventory_component.current_inventory_slot] == null:
-				if body.is_in_group("flashlights"):
-					_show_interacting_label("Press E To Pick Up Flashlight")
-				elif body.is_in_group("keys"):
-					_show_interacting_label("Press E To Pick Up Key")
-				if Input.is_action_just_pressed("interact"):
-					inventory_component.pick_up(body)
-				break
+	world_ui.interacting_label.hide()
+	if aim_ray.is_colliding():
+		var body: Object = aim_ray.get_collider()
+		if body.is_in_group("batteries") and inventory_component.is_current_slot_in_group("flashlights"):
+			_show_interacting_label("Press E to Replace Flashlight Battery")
+			if Input.is_action_just_pressed("interact") and inventory_component.is_current_slot_in_group("flashlights"):
+				inventory_component.get_current_inventory_slot().set_battery_life(100)
+				body.queue_free()
+			return
+		elif body.is_in_group("metal_doors") and inventory_component.is_current_slot_in_group("keys") and body.door_name == inventory_component.get_current_inventory_slot().key_name:
+			_show_interacting_label("Press E to Open/Close %s Door" % [body.door_name])
+			if Input.is_action_pressed("interact") and world_ui.value == 100:
+				body.toggle_door()
+				world_ui.value = 0
+			elif Input.is_action_pressed("interact") and world_ui.value < 100:
+				world_ui.value += 0.5
+			return
+		elif body.is_in_group("notes"):
+			_show_interacting_label("Press E To Read Note")
+			if Input.is_action_just_pressed("interact"):
+				body.show_note()
+			return
+		elif body is Item and body not in inventory_component.inventory_slots.values() and inventory_component.inventory_slots[inventory_component.current_inventory_slot] == null:
+			if body.is_in_group("flashlights"):
+				_show_interacting_label("Press E To Pick Up Flashlight")
+			elif body.is_in_group("keys"):
+				_show_interacting_label("Press E To Pick Up Key")
+			if Input.is_action_just_pressed("interact"):
+				inventory_component.pick_up(body)
+			return

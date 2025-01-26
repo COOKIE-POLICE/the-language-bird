@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bie3d3xyi3trb"]
 
-[ext_resource type="PackedScene" uid="uid://bnxsy6omw71oc" path="res://assets/models/battery.blend" id="1_nmmwc"]
+[ext_resource type="PackedScene" uid="uid://bnxsy6omw71oc" path="res://assets/models/battery/battery.blend" id="1_nmmwc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_eq5lc"]
 height = 0.495

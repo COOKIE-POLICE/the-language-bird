@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://bmk048pfsdc3n"]
 
-[ext_resource type="AudioStream" uid="uid://cngrkx3lc46vr" path="res://assets/background_sfx/swarming_flies.ogg" id="2_4u1ag"]
+[ext_resource type="AudioStream" uid="uid://cngrkx3lc46vr" path="res://assets/sfx/swarming_flies.ogg" id="2_4u1ag"]
 [ext_resource type="PackedScene" uid="uid://ol3i5jak1q85" path="res://assets/models/rotten_doughnut/rotten_doughnut.blend" id="2_kos6c"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="3_0uyo4"]
 [ext_resource type="Texture2D" uid="uid://dlnlbx3gb35kb" path="res://assets/models/rotten_doughnut/textures/mold.webp" id="4_aqwqw"]
@@ -113,7 +113,6 @@ process_mode = 3
 stream = ExtResource("2_4u1ag")
 volume_db = -15.0
 autoplay = true
-bus = &"Background SFX"
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-0.2, -0.1, -0.2, 0.4, 0.2, 0.4)

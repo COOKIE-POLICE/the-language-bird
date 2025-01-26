@@ -1,17 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ncqt7agjlnjs"]
+[gd_scene load_steps=10 format=3 uid="uid://ncqt7agjlnjs"]
 
 [ext_resource type="Script" path="res://modules/player/player.gd" id="1_qesqb"]
+[ext_resource type="Script" path="res://modules/player/hand.gd" id="2_x3c0j"]
 [ext_resource type="AudioStream" uid="uid://d3v1qqhwd1udp" path="res://assets/sfx/footsteps_leather_wood_walk/footsteps_leather_wood_walk01.wav" id="4_mbe4h"]
-[ext_resource type="Theme" uid="uid://d5t53bidh7yv" path="res://assets/themes/default.tres" id="4_tdpa2"]
 [ext_resource type="Script" path="res://modules/player/inventory_component.gd" id="5_y6rb8"]
 [ext_resource type="AudioStream" uid="uid://drhnifhs0c2xe" path="res://assets/sfx/footsteps_leather_wood_walk/footsteps_leather_wood_walk06.wav" id="9_byho2"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mwh6m"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j8ytp"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_a33gb"]
-radius = 2.5
 
 [sub_resource type="Animation" id="Animation_nkdt0"]
 resource_name = "walk"
@@ -41,56 +34,44 @@ _data = {
 "walk": SubResource("Animation_nkdt0")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j8ytp"]
+height = 3.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mwh6m"]
+height = 3.0
+
 [node name="Player" type="CharacterBody3D" groups=["players"]]
 script = ExtResource("1_qesqb")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_mwh6m")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_j8ytp")
-
-[node name="Head" type="Node3D" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.3)
-fov = 60.0
-far = 100.0
-
-[node name="Hand" type="Node3D" parent="Head" groups=["player_hands"]]
-
-[node name="InteractingArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractingArea"]
-shape = SubResource("SphereShape3D_a33gb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_07imb")
 }
 
+[node name="InventoryComponent" type="Node" parent="."]
+script = ExtResource("5_y6rb8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_j8ytp")
+
 [node name="FootstepsAudio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 volume_db = 24.0
 bus = &"SFX"
 
-[node name="InteractingLabel" type="Label" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -106.5
-offset_top = -73.0
-offset_right = 106.5
-offset_bottom = -50.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("4_tdpa2")
-theme_override_font_sizes/font_size = 12
-text = "Press E To Pick Up Flashlight"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Head" type="Node3D" parent="."]
 
-[node name="InventoryComponent" type="Node" parent="."]
-script = ExtResource("5_y6rb8")
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.3)
+fov = 60.0
+far = 100.0
+
+[node name="Hand" type="Node3D" parent="Head"]
+script = ExtResource("2_x3c0j")
+
+[node name="AimRay" type="RayCast3D" parent="Head/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.3)
+target_position = Vector3(0, 0, -5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_mwh6m")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://modules/note/note.gd" id="1_2rt5w"]
 [ext_resource type="Texture2D" uid="uid://t1nsu1c05lus" path="res://assets/textures/old_paper.jpg" id="1_u31iv"]
-[ext_resource type="AudioStream" uid="uid://cd1c3srlquwrl" path="res://assets/sfx/papercrackle.wav" id="3_wr4co"]
+[ext_resource type="AudioStream" uid="uid://cd1c3srlquwrl" path="res://assets/sfx/note/papercrackle.wav" id="3_wr4co"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7gtm"]
 albedo_texture = ExtResource("1_u31iv")
@@ -41,12 +41,17 @@ expand_mode = 1
 [node name="NoteText" type="Label" parent="Note"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.934599
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.7
+offset_top = -95.0
+offset_right = 65.7
+offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 8
 autowrap_mode = 3
-metadata/_edit_use_anchors_ = true

@@ -1,13 +1,20 @@
 extends Item
 
 var battery_life: float = 100.0
+var world_ui: WorldUI
+
+func init_world_ui() -> void:
+	world_ui = get_tree().get_first_node_in_group("world_ui")
+
+func _ready() -> void:
+	init_world_ui()
 
 func _process(delta: float) -> void:
-	%BatteryLife.value = battery_life
-	if get_parent().is_in_group("player_hands"):
-		%BatteryLife.show()
+	world_ui.battery_life.value = battery_life
+	if get_parent() is PlayerHand and visible:
+		world_ui.battery_life.show()
 	else:
-		%BatteryLife.hide()
+		world_ui.battery_life.hide()
 
 func toggle_flashlight() -> void:
 	%FlashlightClickAudio.play()

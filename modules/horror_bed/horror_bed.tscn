@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://taw1e4nsb3mr"]
+
+[ext_resource type="PackedScene" uid="uid://b2s7vr2gyd6qx" path="res://assets/models/horror_bed/horror_bed.glb" id="1_er0s7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ngu5j"]
+size = Vector3(4.40686, 2.26074, 1.95148)
+
+[node name="HorrorBed" type="StaticBody3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_er0s7")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159363, 0.630371, -0.0152283)
+shape = SubResource("BoxShape3D_ngu5j")

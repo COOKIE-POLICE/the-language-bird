@@ -1,18 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://drbuhnqxab2n5"]
 
-[ext_resource type="PackedScene" uid="uid://o0hpqvuxhvcp" path="res://assets/models/crate.blend" id="1_x1d7k"]
+[ext_resource type="PackedScene" uid="uid://o0hpqvuxhvcp" path="res://assets/models/crate/crate.blend" id="1_x1d7k"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hbp4u"]
-points = PackedVector3Array(1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1, -1, -1, -1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wity"]
+size = Vector3(2, 2, 2)
 
 [node name="Crate" type="RigidBody3D"]
 
 [node name="crate" parent="." instance=ExtResource("1_x1d7k")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_hbp4u")
-
-[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
-aabb = AABB(-0.6, -0.5, -0.6, 1.2, 1, 1.2)
+shape = SubResource("BoxShape3D_7wity")

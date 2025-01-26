@@ -5,8 +5,8 @@ var current_inventory_slot: int = 1
 
 # These dictionaries are to design how the items will look in first-person viewport
 var item_positions: Dictionary = {
-	"flashlight": Vector3(0.4, 0.2, -1),
-	"key": Vector3(0.4, 0.2, -1.3)
+	"flashlight": Vector3(0.4, 0.9, -1),
+	"key": Vector3(0.4, 0.9, -1.3)
 }
 var item_rotation_degrees: Dictionary = {
 	"flashlight": Vector3(-90, 0, 0),

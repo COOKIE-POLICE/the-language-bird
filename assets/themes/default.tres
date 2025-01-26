@@ -1,6 +1,13 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d5t53bidh7yv"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://d5t53bidh7yv"]
 
 [ext_resource type="FontFile" uid="uid://ctfg85sh8h1vm" path="res://assets/fonts/unispace_rg.otf" id="1_ebvy3"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wj1cd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opdko"]
+
 [resource]
+Button/fonts/font = ExtResource("1_ebvy3")
+Button/styles/disabled = SubResource("StyleBoxEmpty_wj1cd")
+Button/styles/focus = SubResource("StyleBoxEmpty_opdko")
 Label/fonts/font = ExtResource("1_ebvy3")

@@ -1,15 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bipouy7ek8oq6"]
 
-[ext_resource type="PackedScene" uid="uid://d18ljtcrhu5q6" path="res://assets/models/jail_bars/jail_bars.blend" id="1_6lgqj"]
+[ext_resource type="PackedScene" uid="uid://dqkoifiicr0q7" path="res://assets/models/jail_bars/jail_bars.glb" id="1_axqy0"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u0mxs"]
-size = Vector3(1, 5, 0.1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ainyf"]
+size = Vector3(5, 4.9, 0.3)
 
 [node name="JailBars" type="StaticBody3D"]
 
-[node name="jail_bars" parent="." instance=ExtResource("1_6lgqj")]
-transform = Transform3D(0.1, 0, 0, 0, 0.4, 0, 0, 0, 0.1, 0, 0, 0)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 1)
-shape = SubResource("BoxShape3D_u0mxs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 3.65, 9.25)
+shape = SubResource("BoxShape3D_ainyf")
+
+[node name="jail_bars" parent="." instance=ExtResource("1_axqy0")]

@@ -1,13 +1,13 @@
 extends Node3D
 
-var is_open = false
+@export var is_open = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@export var door_name: String
 func toggle_door() -> void:
 	if is_open:
-		animation_player.play("close")
-		is_open = false
+		if not animation_player.is_playing():
+			animation_player.play("close")
 	else:
-		animation_player.play("open")
-		is_open = true
+		if not animation_player.is_playing():
+			animation_player.play("open")
 		

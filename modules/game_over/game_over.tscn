@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6ftts87csbrn"]
+
+[ext_resource type="Theme" uid="uid://d5t53bidh7yv" path="res://assets/themes/default.tres" id="1_ex8ve"]
+[ext_resource type="Script" path="res://modules/game_over/game_over.gd" id="1_vtm4o"]
+[ext_resource type="PackedScene" uid="uid://btansj7xgyqwf" path="res://assets/models/the_language_bird/the_language_bird.blend" id="2_jthal"]
+[ext_resource type="AudioStream" uid="uid://cvr5vdnduwpmi" path="res://assets/ambience/ambience_menu.mp3" id="3_pgvbl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_us6yu"]
+sky_top_color = Color(0.0451227, 0.0633764, 0.0887599, 1)
+sky_horizon_color = Color(0.100562, 0.104096, 0.109674, 1)
+ground_bottom_color = Color(0.0488757, 0.0361787, 0.0236223, 1)
+ground_horizon_color = Color(0.0649747, 0.0677105, 0.0720289, 1)
+
+[sub_resource type="Sky" id="Sky_0v5b5"]
+sky_material = SubResource("ProceduralSkyMaterial_us6yu")
+
+[sub_resource type="Environment" id="Environment_18q0e"]
+background_mode = 2
+sky = SubResource("Sky_0v5b5")
+tonemap_mode = 3
+glow_enabled = true
+fog_light_color = Color(0.196078, 0, 0, 1)
+volumetric_fog_albedo = Color(0.489622, 0.489622, 0.489622, 1)
+volumetric_fog_emission = Color(0.196078, 0, 0, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_length = 128.0
+adjustment_enabled = true
+adjustment_brightness = 1.3
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vtm4o")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_right = 82.5
+offset_bottom = 37.0
+grow_horizontal = 2
+theme = ExtResource("1_ex8ve")
+theme_override_font_sizes/font_size = 30
+text = "Game Over"
+
+[node name="Restart" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ex8ve")
+text = "Restart"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pgvbl")
+autoplay = true
+bus = &"Ambience"
+
+[node name="MainMenu" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 30.0
+offset_right = 100.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ex8ve")
+text = "Main Menu"
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Background"]
+
+[node name="the_language_bird" parent="Background/Camera3D" instance=ExtResource("2_jthal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07506, -0.660075, -4.20106)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Background"]
+environment = SubResource("Environment_18q0e")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, -0.058714, 0.998275, 0, -0.998275, -0.058714, -1.06076, 3.14272, -3.09757)
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -61.5
+offset_right = 20.0
+offset_bottom = -38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ex8ve")
+theme_override_font_sizes/font_size = 25
+text = "asdfsdaasdf"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
